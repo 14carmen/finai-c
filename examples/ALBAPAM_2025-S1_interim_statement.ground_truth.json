@@ -1,0 +1,63 @@
+{
+  "_source": "From ALBAPAM_2025-S1_interim_statement.pdf (half-year report at 30.06.2025, small-entity format OMF 1194/2025: F10 Situatia activelor, datoriilor si capitalurilor proprii, F20 Contul prescurtat de profit si pierdere, F30 Date informative; 17 pages, digital). Balance-sheet 'start' = 01.01.2025; profit-and-loss 'start' = S1 2024. Rows that exist but are blank (stocuri, datorii peste un an) = 0. The short form has no 'Total active', 'Total datorii', 'Venituri totale' or 'Cheltuieli totale' row, so those stay null. Checked: r09 = r05+r06+r07+r08; r46 = r04+r09+r10-r13-r16-r17-r18; loss = r01+r02-r03-r04-r05-r06 (95.322 - 236.373 = -141.051).",
+  "_company": "SC ALBAPAM SA",
+  "entity": "SC ALBAPAM SA",
+  "tax_id": "1761654",
+  "period": "30.06.2025",
+  "fixed_assets": {
+    "end": "19.629.110",
+    "start": "19.671.201"
+  },
+  "current_assets": {
+    "end": "42.895",
+    "start": "93.816"
+  },
+  "inventories": {
+    "end": "0",
+    "start": "0"
+  },
+  "receivables": {
+    "end": "29.665",
+    "start": "38.409"
+  },
+  "cash": {
+    "end": "13.230",
+    "start": "55.407"
+  },
+  "total_assets": {
+    "end": null,
+    "start": null
+  },
+  "current_liabilities": {
+    "end": "2.772.787",
+    "start": "2.724.748"
+  },
+  "non_current_liabilities": {
+    "end": "0",
+    "start": "0"
+  },
+  "total_liabilities": {
+    "end": null,
+    "start": null
+  },
+  "equity": {
+    "end": "16.899.218",
+    "start": "17.040.269"
+  },
+  "revenue": {
+    "end": "95.322",
+    "start": "73.121"
+  },
+  "total_income": {
+    "end": null,
+    "start": null
+  },
+  "total_expenses": {
+    "end": null,
+    "start": null
+  },
+  "net_result": {
+    "end": "-141.051",
+    "start": "-143.936"
+  }
+}

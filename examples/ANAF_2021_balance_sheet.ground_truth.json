@@ -1,0 +1,62 @@
+{
+  "_source": "From ANAF_2021_balance_sheet.pdf (ANAF own apparatus, 31.12.2021, 3 pages, digital PDF with a text layer). Checked: r15 + r45 = r46; r19 + r30 + r40 = r45; r58 + r78 = r79; r46 - r79 = r90; r84 + r85 - r88 = r90. Equity is NEGATIVE at year end and the result is a debit balance (loss) in both columns. Non-current liabilities at the start: empty cell = 0.",
+  "entity": "AGENTIA NATIONALA DE ADMINISTRARE FISCALA - AP.PROPRIU",
+  "tax_id": null,
+  "period": "31.12.2021",
+  "fixed_assets": {
+    "end": "154.797.678",
+    "start": "150.983.118"
+  },
+  "current_assets": {
+    "end": "632.266.658",
+    "start": "390.778.058"
+  },
+  "inventories": {
+    "end": "182.848.935",
+    "start": "201.434.628"
+  },
+  "receivables": {
+    "end": "23.650.777",
+    "start": "10.531.323"
+  },
+  "cash": {
+    "end": "425.766.946",
+    "start": "178.812.107"
+  },
+  "total_assets": {
+    "end": "787.064.336",
+    "start": "541.761.176"
+  },
+  "current_liabilities": {
+    "end": "782.075.351",
+    "start": "501.742.153"
+  },
+  "non_current_liabilities": {
+    "end": "15.981.927",
+    "start": "0"
+  },
+  "total_liabilities": {
+    "end": "798.057.278",
+    "start": "501.742.153"
+  },
+  "equity": {
+    "end": "-10.992.942",
+    "start": "40.019.023"
+  },
+  "revenue": {
+    "end": null,
+    "start": null
+  },
+  "total_income": {
+    "end": null,
+    "start": null
+  },
+  "total_expenses": {
+    "end": null,
+    "start": null
+  },
+  "net_result": {
+    "end": "-342.302.463",
+    "start": "-305.813.771"
+  }
+}

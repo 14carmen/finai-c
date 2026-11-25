@@ -1,0 +1,63 @@
+{
+  "_source": "From PETAL_2025-Q1_interim_statement.pdf (BVB current report + forms F10 Bilant and F20 Contul de profit si pierdere at 31.03.2025, 11 pages, company format OMF 107/2025). Balance-sheet 'start' = 01.01.2025; profit-and-loss 'start' = Q1 2024 (column 'Precedent'). The company form has no 'Total active' or 'Total datorii' row, so those stay null. Checked: r41 = r30+r36+r39+r40; r100 = r25+r41+r42-r53-r64-r68-r79; net loss = r62-r63 (Q1 2025: 1.869.895 - 3.234.955 = -1.365.060).",
+  "_company": "PETAL SA",
+  "entity": "PETAL SA",
+  "tax_id": "841186",
+  "period": "31.03.2025",
+  "fixed_assets": {
+    "end": "62.710.682",
+    "start": "63.697.231"
+  },
+  "current_assets": {
+    "end": "12.482.292",
+    "start": "13.119.746"
+  },
+  "inventories": {
+    "end": "3.842.503",
+    "start": "3.573.146"
+  },
+  "receivables": {
+    "end": "7.485.781",
+    "start": "8.462.349"
+  },
+  "cash": {
+    "end": "1.154.008",
+    "start": "1.084.251"
+  },
+  "total_assets": {
+    "end": null,
+    "start": null
+  },
+  "current_liabilities": {
+    "end": "22.559.793",
+    "start": "20.295.685"
+  },
+  "non_current_liabilities": {
+    "end": "26.088.137",
+    "start": "27.627.727"
+  },
+  "total_liabilities": {
+    "end": null,
+    "start": null
+  },
+  "equity": {
+    "end": "16.681.554",
+    "start": "18.282.529"
+  },
+  "revenue": {
+    "end": "574.746",
+    "start": "4.537.608"
+  },
+  "total_income": {
+    "end": "1.869.895",
+    "start": "4.940.052"
+  },
+  "total_expenses": {
+    "end": "3.234.955",
+    "start": "4.943.152"
+  },
+  "net_result": {
+    "end": "-1.365.060",
+    "start": "-6.435"
+  }
+}

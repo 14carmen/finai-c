@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinAI C — finance + local model benchmark</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Cpath d=%22M8 0l8 8-8 8-8-8z%22 fill=%22%233b5bdb%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><span class="logo">◆</span> FinAI C</div>
+  <nav>
+    <button data-view="dashboard">Dashboard</button>
+    <button data-view="transactions">Income &amp; expenses</button>
+    <button data-view="documents">Financial statements</button>
+    <button data-view="run">Run models</button>
+    <button data-view="compare">Model comparison</button>
+    <button data-view="charts">Charts &amp; tables</button>
+    <button data-view="phone">Phone results</button>
+    <button data-view="settings">Settings</button>
+  </nav>
+  <div class="status" id="status">Checking…</div>
+</aside>
+
+<main>
+  <header><h1 id="title"></h1></header>
+  <div class="content">
+
+    <!-- DASHBOARD -->
+    <section id="v-dashboard" class="view">
+      <p class="muted">Indicators come from the <b>accepted</b> values of each company's latest statement
+        (Financial statements → open a document → "Use in dashboard" on the run you trust).
+        Income and expenses come from the transactions entered by hand.</p>
+      <div id="dash"></div>
+    </section>
+
+    <!-- TRANSACTIONS -->
+    <section id="v-transactions" class="view">
+      <div class="grid2">
+        <form id="f-tr" class="card">
+          <h3>Add a transaction</h3>
+          <label>Company<select name="company_id" required class="sel-company"></select></label>
+          <div class="row">
+            <label>Type<select name="type" id="tr-type">
+              <option value="income">Income</option><option value="expense" selected>Expense</option></select></label>
+            <label>Category<select name="category" id="tr-cat" required></select></label>
+          </div>
+          <div class="row">
+            <label>Date<input type="date" name="date" required id="tr-date"></label>
+            <label>Amount (RON)<input type="number" name="amount" min="0.01" step="0.01" required></label>
+          </div>
+          <label>Description<input name="description" maxlength="200" placeholder="optional"></label>
+          <button class="primary">Save</button>
+        </form>
+        <div class="card">
+          <h3>Totals by category</h3>
+          <div class="row">
+            <label>Company<select id="tr-filter-company" class="sel-company" data-all="1"></select></label>
+            <label>Month<input type="month" id="tr-filter-month"></label>
+          </div>
+          <div id="tr-summary"></div>
+        </div>
+      </div>
+      <div class="card"><table id="tr-table"></table></div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section id="v-documents" class="view">
+      <form id="f-upload" class="card">
+        <h3>Upload a balance sheet / profit and loss account</h3>
+        <div class="row">
+          <label>Existing company<select name="company_id" class="sel-company" data-none="1"></select></label>
+          <label>…or new company<input name="new_company" placeholder="Company name"></label>
+          <label>Tax ID<input name="tax_id" placeholder="optional"></label>
+        </div>
+        <label>File (PDF or image)<input type="file" name="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff" required multiple></label>
+        <button class="primary">Upload</button>
+      </form>
+      <div class="card"><table id="doc-table"></table></div>
+      <div id="doc-detail"></div>
+    </section>
+
+    <!-- RUN -->
+    <section id="v-run" class="view">
+      <div class="grid3">
+        <div class="card">
+          <h3>1. Documents</h3>
+          <div id="run-docs" class="checks"></div>
+        </div>
+        <div class="card">
+          <h3>2. Local models <button class="small" id="btn-refresh-models">↻</button></h3>
+          <div id="run-models" class="checks"></div>
+        </div>
+        <div class="card">
+          <h3>3. Pipelines</h3>
+          <div id="run-pipes" class="checks"></div>
+          <label>Repetitions (for mean ± std)<input type="number" id="run-rep" min="1" max="10" value="1"></label>
+          <p class="small" id="run-config"></p>
+          <button class="primary" id="btn-run">Start benchmark</button>
+          <p class="muted small">Models run one after another, never in parallel, so measured times are fair.
+            Image pipelines need vision models (marked 👁). Embedding models only run "OCR + embeddings",
+            OCR models (e.g. GLM-OCR) only run "AI OCR + rules". Impossible combinations are skipped.</p>
+        </div>
+      </div>
+      <div id="jobs"></div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="v-compare" class="view">
+      <div class="card row">
+        <label>Document<select id="cmp-doc"><option value="">All documents</option></select></label>
+        <a class="btn" id="exp-summary" href="/api/export/summary.csv">⬇ Summary CSV (paper)</a>
+        <a class="btn" id="exp-runs" href="/api/export/runs.csv">⬇ All runs CSV</a>
+      </div>
+      <div class="card"><h3>Ranking (sorted by F1)</h3><div class="scroll"><table id="cmp-table"></table></div>
+        <p class="muted small">Accuracy = exact fields (±1 unit) / fields present in the document.
+          Precision = exact fields / fields returned. Hallucinations = values invented for items that do not exist.
+          Indicator error = mean relative error of the computed financial ratios. Consistency = accounting identities
+          respected (needs no ground truth).</p></div>
+      <div class="grid2">
+        <div class="card"><h3>Accuracy per field</h3><div class="scroll" id="cmp-fields"></div></div>
+        <div class="card"><h3>Error types</h3><div id="cmp-errors"></div></div>
+      </div>
+      <div class="card"><h3>Accuracy vs. time</h3><div id="cmp-scatter"></div></div>
+    </section>
+
+    <!-- CHARTS -->
+    <section id="v-charts" class="view">
+      <div class="card row">
+        <label>Documents<select id="ch-docs"></select></label>
+        <label>Device<select id="ch-device"><option value="all">Laptop and phone</option><option value="laptop">Laptop only</option><option value="phone">Phone only</option></select></label>
+        <button id="ch-refresh">↻ Refresh</button>
+        <span class="muted small" id="ch-count" style="flex-basis:100%"></span>
+      </div>
+      <div id="charts-body"></div>
+    </section>
+
+    <!-- PHONE -->
+    <section id="v-phone" class="view">
+      <div class="grid2">
+        <div class="card">
+          <h3>How to test on the phone</h3>
+          <ol class="small">
+            <li>Run the models in an app that works <b>locally, offline</b> (e.g. Google AI Edge Gallery for Gemma 3n,
+              PocketPal AI or llama.cpp in Termux for Bonsai). Use temperature 0 and Top-K 1 if available.</li>
+            <li>Switch the phone to <b>airplane mode</b>, so it is certain that the model runs offline.</li>
+            <li>Choose below what the model receives, copy the prompt (it already contains the statement table read by OCR)
+              and paste it into a <b>new chat</b>. The text variants work with any model, so Gemma and Bonsai receive
+              exactly the same input.</li>
+            <li>Time the answer and note the tokens/s if the app shows them.</li>
+            <li>Paste the answer here. For the image variant with several pages, separate the answers with a line <code>-----</code>.</li>
+          </ol>
+          <label>What the model receives
+            <select id="ph-mode">
+              <option value="ocr_llm">Text: prompt + OCR table, the model copies the amounts</option>
+              <option value="ocr_llm_rowpick">Text: prompt + numbered OCR table, the model picks row numbers</option>
+              <option value="vlm_page">Image: prompt + a photo of each page (vision models only)</option>
+            </select></label>
+          <label>For the document<select id="ph-doc-prompt"></select></label>
+          <p class="small muted" id="ph-example-note"></p>
+          <button id="btn-copy-prompt">Copy the prompt</button>
+          <pre id="prompt-text" class="pre small"></pre>
+        </div>
+        <form id="f-phone" class="card">
+          <h3>Add the result</h3>
+          <label>Document<select name="document_id" id="ph-doc" required></select></label>
+          <div class="row">
+            <label>Model<input name="model" required placeholder="e.g. Gemma-3n-E2B or Bonsai-8B"></label>
+            <label>Device<input name="device" value="Samsung S25" placeholder="e.g. Samsung S25 GPU"></label>
+          </div>
+          <label>What the model received<select name="pipeline" id="ph-pipe">
+            <option value="ocr_llm">Text – copy the amounts</option>
+            <option value="ocr_llm_rowpick">Text – pick the rows</option>
+            <option value="vlm_page">Image (photos of the pages)</option></select></label>
+          <label>The model's answer<textarea name="answer" rows="10" required placeholder='{"total_assets": "82.859.557.659,48", ...}'></textarea></label>
+          <div class="row">
+            <label>Total time (s)<input type="number" step="0.1" name="total_time"></label>
+            <label>Tokens / s<input type="number" step="0.1" name="tokens_per_sec"></label>
+            <label>Memory (MB)<input type="number" step="1" name="memory_mb"></label>
+          </div>
+          <button class="primary">Score and save</button>
+          <div id="ph-result"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="v-settings" class="view">
+      <form id="f-settings" class="card">
+        <h3>Local model servers</h3>
+        <label>Ollama<input name="ollama_url"></label>
+        <label>OpenAI-compatible server (llama.cpp llama-server for Bonsai, LM Studio, mlx_vlm.server)<input name="openai_url"></label>
+        <h3>Prompting strategy (LLM pipelines)</h3>
+        <label>Example answer in the prompt
+          <select name="prompt_example"><option value="no">No (zero-shot)</option><option value="yes">Yes (one-shot)</option></select></label>
+        <label>Constrained output: amounts may only contain digits (grammar-constrained decoding; not available on the phone)
+          <select name="constrained_output"><option value="no">No</option><option value="yes">Yes</option></select></label>
+        <label>"Thinking" models (e.g. qwen3-vl): let them reason before answering?
+          <select name="thinking"><option value="no">No (faster; recommended)</option><option value="yes">Yes (slower, sometimes more accurate)</option></select></label>
+        <h3>Run parameters</h3>
+        <div class="row">
+          <label>PDF render DPI<input type="number" name="dpi" min="72" max="400"></label>
+          <label>Maximum image side (px)<input type="number" name="max_side_px" min="512" max="4000"></label>
+          <label>Context (num_ctx)<input type="number" name="num_ctx" min="2048" step="1024"></label>
+          <label>Timeout per call (s)<input type="number" name="timeout_s" min="30"></label>
+        </div>
+        <label>Similarity threshold for "OCR + embeddings" (0–1; higher = stricter, fewer hallucinations, more missing fields)
+          <input type="number" name="embedding_threshold" min="0" max="1" step="0.05"></label>
+        <label>Device name (shown in the results)<input name="device" placeholder="e.g. laptop Ryzen 5 5600H, CPU only"></label>
+        <button class="primary">Save</button>
+        <p class="muted small">Every setting above is stored with each run, and runs with different settings are kept apart in the
+          comparison, so each one is a variable you can compare in the paper.</p>
+      </form>
+    </section>
+  </div>
+</main>
+<div id="toast"></div>
+<script src="/static/app.js"></script>
+<script src="/static/charts.js"></script>
+</body>
+</html>

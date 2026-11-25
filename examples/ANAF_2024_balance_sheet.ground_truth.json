@@ -1,0 +1,62 @@
+{
+  "_source": "From ANAF_2024_balance_sheet.pdf (form FXB-SFC-002, DEC-2024, 2 pages, digital PDF with a text layer). Checked: r07 + r15 = r16; r22 + r29 = r30; r16 - r30 = r36; r33 + r34 + r35 = r36.",
+  "entity": "AGENTIA NATIONALA DE ADMINISTRARE FISCALA",
+  "tax_id": "16031712",
+  "period": "DEC-2024",
+  "fixed_assets": {
+    "end": "155.776.155,18",
+    "start": "145.305.227,08"
+  },
+  "current_assets": {
+    "end": "147.248.472.133,01",
+    "start": "535.000.546,01"
+  },
+  "inventories": {
+    "end": "13.445.862,66",
+    "start": "346.055.484,15"
+  },
+  "receivables": {
+    "end": "142.897.195.046,08",
+    "start": "11.019.297,74"
+  },
+  "cash": {
+    "end": "4.328.335.986,27",
+    "start": "165.973.989,12"
+  },
+  "total_assets": {
+    "end": "147.404.248.288,19",
+    "start": "680.305.773,09"
+  },
+  "current_liabilities": {
+    "end": "11.983.936.055,00",
+    "start": "582.044.230,90"
+  },
+  "non_current_liabilities": {
+    "end": "9.495.238,00",
+    "start": "11.950.325,00"
+  },
+  "total_liabilities": {
+    "end": "11.993.431.293,00",
+    "start": "593.994.555,90"
+  },
+  "equity": {
+    "end": "135.410.816.995,19",
+    "start": "86.311.217,19"
+  },
+  "revenue": {
+    "end": null,
+    "start": null
+  },
+  "total_income": {
+    "end": null,
+    "start": null
+  },
+  "total_expenses": {
+    "end": null,
+    "start": null
+  },
+  "net_result": {
+    "end": "134.053.866.398,48",
+    "start": "-343.971.359,26"
+  }
+}

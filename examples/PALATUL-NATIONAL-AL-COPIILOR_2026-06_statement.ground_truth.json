@@ -1,0 +1,63 @@
+{
+  "_source": "From PALATUL-NATIONAL-AL-COPIILOR_2026-06_statement.pdf (public institution, IUN-2026; SCANNED document, 18 pages: FXB-SFC-002 Bilant, FXB-SFC-003 Contul de rezultat patrimonial, FXB-SFC-004 cash flows, FXB-SFC-001 trial balance). Values read from the page images. Same convention as the ANAF examples: 'start' = balance-sheet column 'Sold la inceputul perioadei' (net_result start = rd.35 = -452.957,34); income/expenses 'start' = 'An Precedent'. No sales revenue (rd.03 blank), so revenue stays null. Checked: r07 = r03+r04; r15 = r09+r10+r12+r13; r16 = r07+r15; r29 = r24+r26; r30 = r22+r29; r36 = r16-r30 = r33+r34+r35; CRP r11 and r24 = sum of rows; r25 = r11-r24 = rd.35.",
+  "_company": "PALATUL NATIONAL AL COPIILOR",
+  "entity": "PALATUL NATIONAL AL COPIILOR",
+  "tax_id": "4221268",
+  "period": "IUN-2026",
+  "fixed_assets": {
+    "end": "83.557.327,14",
+    "start": "83.637.719,82"
+  },
+  "current_assets": {
+    "end": "2.542.239,81",
+    "start": "2.090.680,26"
+  },
+  "inventories": {
+    "end": "1.871.485,81",
+    "start": "1.850.989,49"
+  },
+  "receivables": {
+    "end": "219.299,00",
+    "start": "212.097,00"
+  },
+  "cash": {
+    "end": "414.605,00",
+    "start": "4.343,77"
+  },
+  "total_assets": {
+    "end": "86.099.566,95",
+    "start": "85.728.400,08"
+  },
+  "current_liabilities": {
+    "end": "959.242,03",
+    "start": "1.239.668,29"
+  },
+  "non_current_liabilities": {
+    "end": "48.249,00",
+    "start": "143.569,00"
+  },
+  "total_liabilities": {
+    "end": "1.007.491,03",
+    "start": "1.383.237,29"
+  },
+  "equity": {
+    "end": "85.092.075,92",
+    "start": "84.345.162,79"
+  },
+  "revenue": {
+    "end": null,
+    "start": null
+  },
+  "total_income": {
+    "end": "7.885.073,48",
+    "start": "7.806.870,00"
+  },
+  "total_expenses": {
+    "end": "7.138.160,35",
+    "start": "7.715.994,01"
+  },
+  "net_result": {
+    "end": "746.913,13",
+    "start": "-452.957,34"
+  }
+}

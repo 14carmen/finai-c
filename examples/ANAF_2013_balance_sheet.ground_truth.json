@@ -1,0 +1,62 @@
+{
+  "_source": "Transcribed by hand from ANAF_2013_balance_sheet.pdf (ANAF own apparatus, 31.12.2013, 3 scanned pages). Checked: r15 + r45 = r46; r58 + r78 = r79; r46 - r79 = r90; r84 + r85 - r86 + r87 - r88 = r90. The 2013 result is a DEBIT balance (loss) -> negative. Non-current liabilities at year end: empty cell = 0.",
+  "entity": "AGENTIA NATIONALA DE ADMINISTRARE FISCALA - AP.PROPRIU",
+  "tax_id": null,
+  "period": "31.12.2013",
+  "fixed_assets": {
+    "end": "2.186.231.940",
+    "start": "2.241.036.030"
+  },
+  "current_assets": {
+    "end": "6.553.273.133",
+    "start": "9.785.761.743"
+  },
+  "inventories": {
+    "end": "9.289.372",
+    "start": "10.306.565"
+  },
+  "receivables": {
+    "end": "6.478.582.434",
+    "start": "9.704.060.054"
+  },
+  "cash": {
+    "end": "65.255.605",
+    "start": "71.105.552"
+  },
+  "total_assets": {
+    "end": "8.739.505.073",
+    "start": "12.026.797.773"
+  },
+  "current_liabilities": {
+    "end": "4.718.454.292",
+    "start": "2.922.864.198"
+  },
+  "non_current_liabilities": {
+    "end": "0",
+    "start": "301.314"
+  },
+  "total_liabilities": {
+    "end": "4.718.454.292",
+    "start": "2.923.165.512"
+  },
+  "equity": {
+    "end": "4.021.050.781",
+    "start": "9.103.632.261"
+  },
+  "revenue": {
+    "end": null,
+    "start": null
+  },
+  "total_income": {
+    "end": null,
+    "start": null
+  },
+  "total_expenses": {
+    "end": null,
+    "start": null
+  },
+  "net_result": {
+    "end": "-2.975.430.341",
+    "start": "1.743.578.917"
+  }
+}

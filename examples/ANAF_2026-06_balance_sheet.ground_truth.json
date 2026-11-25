@@ -1,0 +1,62 @@
+{
+  "_source": "Transcribed by hand from ANAF_2026-06_balance_sheet.pdf (form FXB-SFC-002, public institution, 2 scanned pages). Checked: row 07 + row 15 = row 16; row 22 + row 29 = row 30; row 16 - row 30 = row 36. Revenue, total income and total expenses do not exist on this form (null). net_result = 'rezultatul patrimonial al exercitiului'.",
+  "entity": "AGENTIA NATIONALA DE ADMINISTRARE FISCALA",
+  "tax_id": "16031712",
+  "period": "IUN-2026",
+  "fixed_assets": {
+    "end": "141.408.650,66",
+    "start": "148.772.175,96"
+  },
+  "current_assets": {
+    "end": "82.718.149.008,82",
+    "start": "155.782.435.084,25"
+  },
+  "inventories": {
+    "end": "14.181.785,71",
+    "start": "14.327.980,27"
+  },
+  "receivables": {
+    "end": "6.084.328.530,41",
+    "start": "149.990.126.251,63"
+  },
+  "cash": {
+    "end": "76.614.193.456,98",
+    "start": "5.768.894.646,35"
+  },
+  "total_assets": {
+    "end": "82.859.557.659,48",
+    "start": "155.931.207.260,21"
+  },
+  "current_liabilities": {
+    "end": "14.415.954.115,49",
+    "start": "13.778.500.579,90"
+  },
+  "non_current_liabilities": {
+    "end": "2.761.945,00",
+    "start": "4.810.981,00"
+  },
+  "total_liabilities": {
+    "end": "14.418.716.060,49",
+    "start": "13.783.311.560,90"
+  },
+  "equity": {
+    "end": "68.440.841.598,99",
+    "start": "142.147.895.699,31"
+  },
+  "revenue": {
+    "end": null,
+    "start": null
+  },
+  "total_income": {
+    "end": null,
+    "start": null
+  },
+  "total_expenses": {
+    "end": null,
+    "start": null
+  },
+  "net_result": {
+    "end": "69.983.362.697,79",
+    "start": "142.207.740.545,53"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "_source": "From RESTART-ENERGY-ONE_2024_annual_statement.pdf (BVB symbol REO26; annual statements at 31.12.2024: F10 Bilant, F20 Contul de profit si pierdere, F30 Date informative, F40 Situatia activelor imobilizate; 23 pages, company format OMF 107/2025). Balance-sheet 'start' = 01.01.2024; profit-and-loss 'start' = 2023. No 'Total active' / 'Total datorii' row in the form, so those stay null. Checked: r41 = r30+r36+r39+r40; r100 = r25+r41+r42-r53-r64-r68-r79; net result = r62-r63 (2024: 96.295.370 - 116.759.751 = -20.464.381).",
+  "_company": "RESTART ENERGY ONE SA",
+  "entity": "RESTART ENERGY ONE SA",
+  "tax_id": "34583200",
+  "period": "31.12.2024",
+  "fixed_assets": {
+    "end": "64.167.332",
+    "start": "67.660.757"
+  },
+  "current_assets": {
+    "end": "105.104.097",
+    "start": "97.540.537"
+  },
+  "inventories": {
+    "end": "22.119.612",
+    "start": "26.721.538"
+  },
+  "receivables": {
+    "end": "79.462.652",
+    "start": "43.980.639"
+  },
+  "cash": {
+    "end": "2.209.066",
+    "start": "23.121.084"
+  },
+  "total_assets": {
+    "end": null,
+    "start": null
+  },
+  "current_liabilities": {
+    "end": "107.454.868",
+    "start": "118.084.790"
+  },
+  "non_current_liabilities": {
+    "end": "48.676.816",
+    "start": "20.730.869"
+  },
+  "total_liabilities": {
+    "end": null,
+    "start": null
+  },
+  "equity": {
+    "end": "7.266.218",
+    "start": "19.158.256"
+  },
+  "revenue": {
+    "end": "92.717.390",
+    "start": "129.579.191"
+  },
+  "total_income": {
+    "end": "96.295.370",
+    "start": "208.224.086"
+  },
+  "total_expenses": {
+    "end": "116.759.751",
+    "start": "203.230.986"
+  },
+  "net_result": {
+    "end": "-20.464.381",
+    "start": "4.993.100"
+  }
+}
